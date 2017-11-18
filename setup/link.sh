@@ -14,3 +14,4 @@ ln -s ${dotfilesDir}/tmux/.tmux.conf ~/.tmux.conf
 ln -s ${dotfilesDir}/git/.gitconfig ~/.gitconfig
 ln -s ${dotfilesDir}/git/.gitignore ~/.gitignore
 ln -s ${dotfilesDir}/tig/.tigrc ~/.tigrc
+ln -s ${dotfilesDir}/.inputrc ~/.inputrc

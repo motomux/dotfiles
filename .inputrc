@@ -1,0 +1,24 @@
+# List all matches instead of beep when completion
+set show-all-if-ambiguous on
+
+# Ignore autocomplete hidden files
+set match-hidden-files off
+
+# Show all autocomplete results
+set page-completions off
+
+# Ask to show them all if there are more than 200 completions
+set completion-query-items 200
+
+# Ignore case for auto-completion
+set completion-ignore-case on
+
+# Use the text that has already been typed as the prefix for searching through
+"\C-n": history-search-forward
+"\C-p": history-search-backward
+
+# Enable 8bit input
+set input-meta on
+set output-meta on
+# Turns off 8bit stripping
+set convert-meta off
