@@ -1,0 +1,77 @@
+# Prompt
+
+## Colors
+light_green="\[\e[1;32m\]"
+light_red="\[\e[1;31m\]"
+yellow="\[\e[0;33m\]"
+gray="\[\e[0;37m\]"
+blue="\[\e[1;36m\]";
+reset="\[\e[m\]"
+
+# Customize prompt
+__prompt_command() {
+  local status="$?"
+  local status_color=""
+  if [ $status != 0 ]; then
+    status_color=$light_red
+  else
+    status_color=$light_green
+  fi
+
+  local working_dir=""
+  local gitTopDir=""
+  local gitBranch=""
+  local dir="$(pwd)"
+
+  # Check if the current directory is in a Git repository.
+  if [ $(git rev-parse --is-inside-work-tree &>/dev/null; echo "${?}") == '0' ]; then
+    local branchName=""
+    local s=""
+    # check if the current directory is in .git before running git checks
+    if [ "$(git rev-parse --is-inside-git-dir 2> /dev/null)" == 'false' ]; then
+      local git_dir="$(git rev-parse --show-toplevel)"
+      gitTopDir="$(basename ${git_dir})"
+      working_dir=`echo $dir | sed "s|${git_dir}||g"`
+
+      # Ensure the index is up to date.
+      git update-index --really-refresh -q &>/dev/null;
+
+      # Check for uncommitted changes in the index.
+      if ! $(git diff --quiet --ignore-submodules --cached); then
+        s+='+';
+      fi;
+
+      # Check for unstaged changes.
+      if ! $(git diff-files --quiet --ignore-submodules --); then
+        s+='!';
+      fi;
+
+      # Check for untracked files.
+      if [ -n "$(git ls-files --others --exclude-standard)" ]; then
+        s+='?';
+      fi;
+
+      # Check for stashed files.
+      if $(git rev-parse --verify refs/stash &>/dev/null); then
+        s+='$';
+      fi;
+
+    # Get the short symbolic ref.
+    # If HEAD isn’t a symbolic ref, get the short SHA for the latest commit
+    # Otherwise, just give up.
+    branchName="$(git symbolic-ref --quiet --short HEAD 2> /dev/null || \
+      git rev-parse --short HEAD 2> /dev/null || \
+      echo '(unknown)')";
+
+    [ -n "${s}" ] && s="|${s}";
+
+    gitBranch="(${branchName}${s})";
+    fi;
+
+  else
+    working_dir=`echo $dir | sed "s|${HOME}|~|g"`
+  fi
+
+  export PS1="[${blue}${gitTopDir}${reset}${yellow}${working_dir}${reset}]${gray}${gitBranch}${reset}${status_color}$ ${reset}"
+}
+export PROMPT_COMMAND=__prompt_command
