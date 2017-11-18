@@ -1,0 +1,18 @@
+# .tigrc
+
+bind generic g  none
+bind generic gg move-first-line
+
+bind main    G  none
+bind generic G  move-last-line
+
+bind generic F none
+bind generic F !git fetch
+
+bind branch n !git checkout -b %(prompt) %(branch)
+
+# show hash ID
+set main-view = id date author commit-title:graph=yes,refs=yes
+
+#
+set diff-context = 6
