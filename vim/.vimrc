@@ -113,7 +113,6 @@ Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
 Plug 'nsf/gocode', { 'rtp': 'vim', 'do': '~/.vim/plugged/gocode/vim/symlink.sh' }
 " Plug 'Shougo/neocomplete'
 Plug 'jiangmiao/auto-pairs'
-Plug 'wakatime/vim-wakatime'
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'w0rp/ale'
 Plug 'maralla/completor.vim'
