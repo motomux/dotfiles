@@ -3,9 +3,10 @@
 ## Colors
 light_green="\[\e[1;32m\]"
 light_red="\[\e[1;31m\]"
+light_blue="\[\e[1;34m\]"
 yellow="\[\e[0;33m\]"
 gray="\[\e[0;37m\]"
-blue="\[\e[1;36m\]";
+light_cyan="\[\e[1;36m\]";
 reset="\[\e[m\]"
 
 # Customize prompt
@@ -63,15 +64,15 @@ __prompt_command() {
       git rev-parse --short HEAD 2> /dev/null || \
       echo '(unknown)')";
 
-    [ -n "${s}" ] && s="|${s}";
+    [ -n "${s}" ] && s="[${s}]";
 
-    gitBranch="(${branchName}${s})";
+    gitBranch=" ${branchName}${s}";
     fi;
 
   else
     working_dir=`echo $dir | sed "s|${HOME}|~|g"`
   fi
 
-  export PS1="[${blue}${gitTopDir}${reset}${yellow}${working_dir}${reset}]${gray}${gitBranch}${reset}${status_color}$ ${reset}"
+  export PS1="${light_cyan}${gitTopDir}${reset}${yellow}${working_dir}${reset}${light_blue}${gitBranch}${reset} ${status_color}$ ${reset}"
 }
 export PROMPT_COMMAND=__prompt_command
