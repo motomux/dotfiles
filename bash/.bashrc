@@ -25,3 +25,7 @@ elif [ -f /etc/bash_completion ]; then
 fi
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
+# Golang
+export GOPATH=$(go env GOPATH)
+export PATH=$PATH:$GOPATH/bin
