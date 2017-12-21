@@ -23,3 +23,4 @@ brew install git
 brew install tig
 brew install wget
 brew install tree
+brew install ag
