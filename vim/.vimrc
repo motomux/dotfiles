@@ -115,6 +115,7 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'w0rp/ale'
 Plug 'maralla/completor.vim'
+Plug 'mileszs/ack.vim'
 
 call plug#end()
 
@@ -178,3 +179,8 @@ let &runtimepath.=',~/.vim/bundle/ale'
 filetype plugin on
 
 let g:ale_lint_delay = 2000
+
+" Ack
+if executable('ag')
+  let g:ackprg = 'ag --vimgrep'
+endif
