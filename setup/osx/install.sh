@@ -24,3 +24,4 @@ brew install tig
 brew install wget
 brew install tree
 brew install ag
+brew install graphviz
