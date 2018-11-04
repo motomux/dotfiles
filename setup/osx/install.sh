@@ -25,6 +25,7 @@ brew install wget
 brew install tree
 brew install ag
 brew install graphviz
+brew install csshx
 
 # Install vim-plug
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
