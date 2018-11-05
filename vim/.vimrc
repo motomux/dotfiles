@@ -116,6 +116,7 @@ Plug 'nathanaelkane/vim-indent-guides'
 Plug 'w0rp/ale'
 Plug 'maralla/completor.vim'
 Plug 'mileszs/ack.vim'
+Plug 'tpope/vim-fugitive'
 
 call plug#end()
 
