@@ -17,3 +17,5 @@ case "$(uname)" in
     exit 1
     ;;
 esac
+
+bash ${dotfilesDir}/setup/common/install.sh
