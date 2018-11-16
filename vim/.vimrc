@@ -145,9 +145,6 @@ let g:go_auto_type_info = 1
 let g:go_info_mode = 'guru'
 
 let g:go_fmt_command = "goimports"
-""" let g:go_metalinter_command = "--enable-all --exclude=lll --deadline=20s"
-" let g:go_metalinter_autosave = 1
-" let g:go_metalinter_autosave_enabled = ['vet', 'golint']
 let g:go_metalinter_enabled = ['vet', 'golint', 'errcheck', 'varcheck', 'aligncheck', 'ineffassign', 'gosimple', 'staticcheck']
 let g:go_metalinter_deadline = '30s'
 let g:go_list_type = "quickfix"
@@ -157,10 +154,6 @@ au FileType go nmap <leader>t :w<CR><Plug>(go-test)
 au FileType go nmap <leader>c :w<CR><Plug>(go-coverage)
 au FileType go nmap <leader>l :w<CR><Plug>(go-metalinter)
 au FileType go nmap <leader>d <Plug>(go-def-vertical)
-
-"" golint
-""" set rtp+=$GOPATH/src/github.com/golang/lint/misc/vim
-""" autocmd BufWritePost,FileWritePost *.go execute 'Lint' | cwindow
 
 " Makefile
 autocmd FileType make setlocal noexpandtab
