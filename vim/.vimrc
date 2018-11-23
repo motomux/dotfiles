@@ -148,6 +148,7 @@ let g:go_fmt_command = "goimports"
 let g:go_metalinter_enabled = ['vet', 'golint', 'errcheck', 'varcheck', 'aligncheck', 'ineffassign', 'gosimple', 'staticcheck']
 let g:go_metalinter_deadline = '30s'
 let g:go_list_type = "quickfix"
+let g:go_test_show_name = 1
 
 au FileType go nmap <leader>r :w<CR><Plug>(go-run)
 au FileType go nmap <leader>t :w<CR><Plug>(go-test)
