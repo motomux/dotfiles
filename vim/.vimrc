@@ -151,8 +151,7 @@ let g:go_list_type = "quickfix"
 let g:go_test_show_name = 1
 
 au FileType go nmap <leader>r :w<CR><Plug>(go-run)
-au FileType go nmap <leader>t :w<CR><Plug>(go-test)
-au FileType go nmap <leader>c :w<CR><Plug>(go-coverage)
+au FileType go nmap <leader>t :w<CR><Plug>(go-test-func)
 au FileType go nmap <leader>l :w<CR><Plug>(go-metalinter)
 au FileType go nmap <leader>d <Plug>(go-def-vertical)
 
