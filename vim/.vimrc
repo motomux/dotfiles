@@ -178,3 +178,6 @@ let g:ale_lint_delay = 2000
 if executable('ag')
   let g:ackprg = 'ag --vimgrep'
 endif
+
+" Snippets
+nnoremap ,test :-1read $HOME/dotfiles/vim/snippets/go_test.txt<CR>

@@ -1,0 +1,14 @@
+func Test(t *testing.T) {
+  testcases := map[string] struct {
+  } {
+    "normal": {
+
+    },
+  }
+
+  for k, c := range testcases {
+    t.Run(k, func(t *testing.T) {
+      
+    })
+  }
+}
